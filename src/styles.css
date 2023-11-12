@@ -1,1 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: 'Aileron';
+  src: url('./assets/Aileron-Regular.otf') format('truetype');
+  /* Puedes agregar formatos adicionales según sea necesario */
+  font-weight: normal;
+  font-style: normal;
+}/* You can add global styles to this file, and also import other style files */
