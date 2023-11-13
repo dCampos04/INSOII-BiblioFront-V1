@@ -1,26 +1,46 @@
-
 <div class="flex h-screen">
-  <!-- Contenido principal (80%) -->
-  <div class="w-4/5 p-4" style="background-color: #eeebeb;">
-    <h1 class="text-2xl font-bold mb-4">Contenido Principal</h1>
-    <!-- Agrega tu contenido aquí -->
+  <!-- Contenido principal -->
+  <div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
+    <h1 class="text-2xl font-bold text-left mb-4">
+      <span class="text-blue" style="color: #0f448d">CATÁLOGO </span><span class="text-orange" style="color: #e47717">DE LIBROS</span>
+    </h1>
+    <hr class="border-2 mb-4" style="border-color: #e47717">
+    <!-- card con libros -->
+    <div class="bg-white" style="width: 70%; margin-left: 200px">
+      <br>
+      <br>
+    </div>
+    <div class="bg-white" style="width: 70%; margin-left: 200px">
+      <div class="mx-auto grid grid-cols-4 gap-8">
+        <div class="flex flex-col items-center relative" *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
+          <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative" >
+            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full items-center object-cover mb-2">
+            <button class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0" [ngStyle]="{ 'background-color': getStatusColor(item.status) }">{{ item.status }}</button>
+          </div>
+          <h3 class="text-xl font-bold mb-1">{{ item.title }}</h3>
+          <p class="text-sm">{{ item.author }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-white" style="width: 70%; margin-left: 200px">
+      <br>
+      <br>
+    </div>
+
+    <!--- Agregar paginacion --->
+    <div class="pagination mt-3" style="width: 70%; margin-left: 200px">
+      <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
+    </div>
+
+    <hr class="border-2 mt-4" style="border-color: #0055a1">
+
   </div>
 
-  <!-- Sidebar (20%) -->
-  <div class="w-1/5 bg-sidebar text-white p-4" style="background-color: #dce1eb;">
-    <h2 class="text-xl font-bold mb-4">Sidebar</h2>
-    <ul>
-      <!-- Opción de menú -->
-      <li class="flex items-center mb-2">
-        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-1.73 0-3.41-.3-5-.86M12 4V2"></path>
-        </svg>
-        <a href="#" class="hover:text-gray-300">Opción 1</a>
-      </li>
-      <!-- Agrega más opciones de menú según sea necesario -->
-    </ul>
+  <!-- Sidebar -->
+  <div class="w-1/10 p-4" style="background-color: #dce1eb;">
+    <div class="flex items-center py-2 px-4 w-full mt-5" style="background-color: #dce1eb;">
+      <a routerLink="/historial/miHistorial" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Mis Solicitudes</a>
+      <img src="./assets/Historial.png" alt="Icono" class="h-12 ml-4 flex items-center">
+    </div>
   </div>
 </div>
-
-
-
