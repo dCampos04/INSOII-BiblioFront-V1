@@ -1,4 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
+
   font-family: 'Aileron';
   src: url('./assets/Aileron-Regular.otf') format('truetype');
   /* Puedes agregar formatos adicionales según sea necesario */

@@ -1,3 +1,140 @@
-<main>
-  <p>CATALOGO BIBLIOTECARIO</p>
-</main>
+
+  <div class="flex h-screen">
+    <!-- Contenido principal -->
+    <div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
+      <h1 class="text-2xl font-bold text-left mb-4">
+        <span class="text-blue" style="color: #0f448d">CATÁLOGO </span><span class="text-orange" style="color: #e47717">DE LIBROS</span>
+      </h1>
+      <hr class="border-2 mb-4" style="border-color: #e47717">
+      <!-- card con libros -->
+
+      <div class="bg-white" style="width: 70%; margin-left: 200px">
+        <div class="mx-auto grid grid-cols-4 gap-8">
+
+        <div class="flex flex-col items-center mt-5 relative" >
+          <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+            <img src="./assets/Crimen%20y%20castigo.jpeg" alt="Portada Libro 1" class="h-full w-full items-center object-cover mb-2">
+          </div>
+          <h3 class="text-xl font-bold mb-1">Crimen y castigo</h3>
+          <p class="text-sm">Fiodor Dostoievski</p>
+          <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #6ae368; margin-left: 98px; margin-top: 256px">Disponible</button>
+        </div>
+
+          <div class="flex flex-col items-center mt-5" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/El%20extranjero.jpg" alt="Portada Libro 2" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">El extrangero</h3>
+            <p class="text-sm">Albert Camus</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #6ae368; margin-left: 98px; margin-top: 256px">Disponible</button>
+          </div>
+
+          <div class="flex flex-col items-center mt-5" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/elprincipe-416x655.jpg" alt="Portada Libro 3" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">El principe</h3>
+            <p class="text-sm">Nicolas Maquiavelo</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #f2dc10; margin-left: 98px; margin-top: 256px">Reservado</button>
+          </div>
+
+          <div class="flex flex-col items-center mt-5" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/El_retrato_oval-Allan_Poe_Edgar-md.png" alt="Portada Libro 4" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">El retrato oval</h3>
+            <p class="text-sm">Edgar Allan Poe</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #6ae368; margin-left: 98px; margin-top: 256px">Disponible</button>
+          </div>
+
+          <div class="flex flex-col items-center mb-5" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/La%20metamorfosis.jpeg" alt="Portada Libro 5" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">La metamorfosis</h3>
+            <p class="text-sm">Frank Kafka</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #f83b3b; margin-left: 98px; margin-top: 256px">No Disp.</button>
+          </div>
+
+          <div class="flex flex-col items-center" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/La%20odisea.jpg" alt="Portada Libro 6" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">La odisea</h3>
+            <p class="text-sm">Homero</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #6ae368; margin-left: 98px; margin-top: 256px">Disponible</button>
+          </div>
+
+          <div class="flex flex-col items-center" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/LosMiserables.webp" alt="Portada Libro 7" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">Los miserables</h3>
+            <p class="text-sm">Victor Hugo</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #f2dc10; margin-left: 98px; margin-top: 256px">Reservado</button>
+          </div>
+
+          <div class="flex flex-col items-center" >
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md">
+              <img src="./assets/Rayuela.jpeg" alt="Portada Libro 8" class="h-full w-full object-cover mb-2">
+            </div>
+            <h3 class="text-xl font-bold mb-1">Rayuela</h3>
+            <p class="text-sm">Julio Cortazar</p>
+            <button class="absolute text-black p-1 rounded-md w-24 h-8" style="background-color: #6ae368; margin-left: 98px; margin-top: 256px">Disponible</button>
+          </div>
+
+        </div>
+      </div>
+
+      <!--- Agregar paginacion --->
+
+      <hr class="border-2 mt-4" style="border-color: #0055a1">
+
+    </div>
+
+    <!-- Sidebar -->
+    <div class="w-1/10 p-4" style="background-color: #dce1eb;">
+          <div class="flex items-center py-2 px-4 w-full mt-5" style="background-color: #dce1eb;">
+            <a href="#" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Registrar libro</a>
+            <img src="./assets/agregar.png" alt="Icono" class="h-12 ml-2 flex items-center">
+          </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="Page navigation example">
+    <ul class="flex items-center -space-x-px h-8 text-sm">
+      <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <span class="sr-only">Previous</span>
+          <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+      </li>
+      <li>
+        <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+          <span class="sr-only">Next</span>
+          <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
