@@ -58,83 +58,90 @@ export class BodyCatalogoBibliotecarioComponent {
       status: 'Disponible'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't1',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A2',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't2',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A3',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't3',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A4',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't4',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A5',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't5',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'Victor hugo 23',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't6',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A7',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't7',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A8',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't8',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A9',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't9',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A10',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't10',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A11',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't11',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
-    },  {
-      title: 'Crimen y castigo',
-      author: 't12',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'Victor hugo 10',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
     {
-      title: 'Crimen y castigo',
-      author: 't13',
-      image: './assets/Crimen%20y%20castigo.jpeg',
-      status: 'Disponible'
+      title: 'Los miserables',
+      author: 'A13',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
     },
-      ];
+    {
+      title: 'Los miserables',
+      author: 'A14',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
+    },
+    {
+      title: 'Los miserables',
+      author: 'Victor hugo 25',
+      image: './assets/LosMiserables.webp',
+      status: 'Reservado'
+    },
+  ];
 
   getStatusColor(status: string): string {
     switch (status) {

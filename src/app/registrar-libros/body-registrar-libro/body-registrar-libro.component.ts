@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-body-registrar-libro',
@@ -21,31 +22,36 @@ export class BodyRegistrarLibroComponent {
     }
   }
   showModal = false;
+  showModal2 = false;
 
   openModal() {
     this.showModal = true;
     // Limpiar propiedades relacionadas con el modal
   }
+  openModal2() {
+    this.showModal2 = true;
+    // Limpiar propiedades relacionadas con el modal
+  }
   closeModal() {
     this.showModal = false;
+    this.showModal2= false;
     // Limpiar propiedades relacionadas con el modal
   }
 
-  validarCampos(): boolean {
-    const titulo = (<HTMLInputElement>document.getElementById('titulo')).value;
-    const portada = (<HTMLInputElement>document.getElementById('portada')).value;
-    const autor = (<HTMLInputElement>document.getElementById('autor')).value;
 
-    if (!titulo || !portada || !autor) {
-      // Al menos uno de los campos está vacío
-      alert('Por favor, complete los campos Título, Portada y Autor.');
-      return false;
-    }
+  public titulo:string="";
+  public autor:string="";
+  public portada:string="";
 
-    // Todos los campos están llenos
-    return true;
+  constructor(private router:Router) {
   }
-
-  // Agrega esta función para abrir el modal si la validación es exitosa
-
+  public enviarFormulario(){
+    console.log(this.titulo, this.autor, this.portada)
+    if(this.titulo && this.autor && this.portada){
+      this.openModal()
+      return;}
+    else {
+      this.openModal2()
+    }
+  }
 }

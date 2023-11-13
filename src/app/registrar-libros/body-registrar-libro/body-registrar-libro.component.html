@@ -13,12 +13,13 @@
           <div>
 
             <div class="mb-6">
-              <label for="titulo" class="block mt-5 mb-2 text-sm font-medium text-gray-900 dark:text-white">TITULO:</label>
-              <input type="text" id="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <label for="titulo" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">TÍTULO:<span class="required"></span></label>
+              <input [(ngModel)]="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" id="titulo" name="titulo" required>
             </div>
+
             <div class="mb-6">
-              <label for="autor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AUTOR:</label>
-              <input type="text" id="autor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <label for="autor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AUTOR:<span class="required"></span></label>
+              <input [(ngModel)]="autor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" id="autor" name="autor" required>
             </div>
 
             <div class="mb-6">
@@ -29,6 +30,7 @@
               <label for="isbn" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN:</label>
               <input type="text" id="isbn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
+
             <div class="mb-6">
               <label for="Año" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AÑO DE PUBLICACION:</label>
               <input type="text" id="Año" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -51,23 +53,23 @@
 
           <!-- Columna derecha -->
           <div>
-            <label for="portada" class="block mt-5 mb-3 text-gray-700">PORTADA:</label>
+            <label for="portada" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">PORTADA:</label>
             <div class="w-full mb-4 border border-gray-400 rounded-md overflow-hidden" style="height: 600px">
               <img id="preview" src="#" alt="Preview" class="w-full h-full object-cover" />
             </div>
-            <input type="file" id="portada" name="portada" class="hidden" (change)="mostrarPrevisualizacion($event)" />
+            <input [(ngModel)]="portada" type="file" id="portada" name="portada" class="hidden" (change)="mostrarPrevisualizacion($event)" />
 
             <label for="subirFoto" class="block mb-2 text-gray-700 cursor-pointer">
               Subir Foto
-              <input type="file" id="subirFoto" name="subirFoto" class="hidden" (change)="mostrarPrevisualizacion($event)" />
+              <input [(ngModel)]="portada" type="file" id="subirFoto" name="subirFoto" class="hidden" (change)="mostrarPrevisualizacion($event)" />
             </label>
           </div>
         </div>
 
         <!-- Botones al final -->
         <div class="flex justify-end">
-          <button routerLink="/catalogoBiblio" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md"style="background-color: #0054a0">Cancelar</button>
-          <button type="submit" (click)="openModal()" class="text-white hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" style="background-color: #e27617">Aceptar</button>
+          <button routerLink="/catalogoBiblio" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md" style="background-color: #0054a0">Cancelar</button>
+          <button (click)="enviarFormulario()" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md" style="background-color: #e07517">aceptar</button>
         </div>
       </form>
     </div>
@@ -121,4 +123,25 @@
   </div>
 </div>
 
+<div *ngIf="showModal2" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" style="background-color: #ece5e5">
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <img src="assets/camposvacios.png">
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">
+        <button
+          class="text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+          type="button" (click)="closeModal()" routerLink="/registrar/registro" style="background-color: #d97000">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div *ngIf="showModal" class="opacity-50 fixed inset-0 z-40 bg-black"></div>
+<div *ngIf="showModal2" class="opacity-50 fixed inset-0 z-40 bg-black"></div>

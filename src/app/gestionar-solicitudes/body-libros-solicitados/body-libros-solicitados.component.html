@@ -7,7 +7,7 @@
       </h1>
       <hr class="border-2 mb-4" style="border-color: #e47717">
       <!-- card con libros -->
-
+      <div class="container" style="height: 50px">
       <div class="bg-white" style="width: 35%; margin-left: 560px">
         <!-- Tabla de libros con solicitudes -->
         <table class="table-auto w-full mx-auto">
@@ -39,9 +39,10 @@
           </tbody>
         </table>
       </div>
+      </div>
 
       <!--- Agregar paginacion --->
-      <div class="pagination mt-3" style="width: 70%; margin-left: 560px">
+      <div class="pagination mt-3" style="width: 70%; margin-left: 560px; margin-top: 665px">
         <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
       </div>
 
