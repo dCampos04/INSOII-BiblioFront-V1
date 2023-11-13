@@ -1,0 +1,121 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  height: 40px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+}
+
+.header-image {
+  height: 55px;
+  margin-right: 10px;
+}
+
+.divider {
+  border: 1px solid #ccc;
+  height: 38px;
+  margin: 0 10px;
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.search-icons {
+  display: flex;
+}
+
+.text {
+  height: 18px;
+  width: 190px; /* o el ancho deseado */
+}
+
+.search-icon {
+  height: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-bottom: 6px;
+}
+
+.bottom-row {
+  display: flex;
+}
+
+.icons {
+  display: flex;
+  margin-bottom: 5px;
+  margin-right: 25px;
+  margin-top: 8px;
+
+}
+.Opcion1{
+  margin-right: 15px;
+  margin-top: 12px;
+  font-family: 'Aileron', sans-serif;
+  font-size: 14px;
+}
+.fleha{
+  margin-left: 3px;
+}
+.Opcion2 {
+  margin-top: 12px;
+  font-family: 'Aileron', sans-serif;
+  font-size: 14px;
+}
+
+.icon {
+  height: 50px;
+  margin-right: 6px;
+  height: 20px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+.link {
+  color: #1548bf;
+  margin-bottom: 5px;
+}
+
+.link:hover {
+  color: red; /* Cambia el color al pasar el mouse */
+  cursor: pointer; /* Agrega un indicador de cursor al pasar el mouse */
+}
+
+.fa-caret-down {
+  margin-left: 5px;
+  color: #888;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.dropdown-panel {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+body {
+  font-family: 'TuFuente', sans-serif;
+}

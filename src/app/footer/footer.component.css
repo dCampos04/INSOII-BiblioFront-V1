@@ -1,0 +1,40 @@
+.fecha {
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.link-politicas {
+  margin-left: 20px; /* Ajusta el espacio entre los enlaces según tus preferencias */
+  color: blue; /* Color inicial del enlace */
+  text-decoration: none;
+}
+
+.link-politicas:hover {
+  color: red; /* Cambia el color al pasar el mouse */
+  cursor: pointer; /* Agrega un indicador de cursor al pasar el mouse */
+}
+
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+
+/* Estilos para las imágenes */
+.footerimg {
+  max-width: 100%; /* Ajusta el tamaño de la imagen según tus preferencias */
+}
+.optim{
+  margin-left: 1210px;
+}
+.nav1,
+.nav2 {
+  max-width: 200px; /* Ajusta el tamaño de las imágenes según tus preferencias */
+  margin-left: 10px; /* Ajusta el espacio entre las imágenes según tus preferencias */
+}
+
+
+
