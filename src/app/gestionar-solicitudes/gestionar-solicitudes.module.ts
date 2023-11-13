@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import {GestionarSolicitudesComponent} from "./gestionar-solicitudes.component";
 import {GestionarSolicitudesRoutingModule} from "./gestionar-solicitudes-routing.module";
 import { BodyGestionarSolicitudesComponent } from './body-gestionar-solicitudes/body-gestionar-solicitudes.component';
-import { BodyLibrosSolicitadosComponent } from './body-libros-solicitados/body-libros-solicitados.component';
+import {
+  BodyLibrosSolicitadosComponent,
+  BookFilterPipe
+} from './body-libros-solicitados/body-libros-solicitados.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -11,11 +15,13 @@ import { BodyLibrosSolicitadosComponent } from './body-libros-solicitados/body-l
   declarations: [
     GestionarSolicitudesComponent,
     BodyGestionarSolicitudesComponent,
-    BodyLibrosSolicitadosComponent
+    BodyLibrosSolicitadosComponent,
+    BookFilterPipe
   ],
   imports: [
     CommonModule,
-    GestionarSolicitudesRoutingModule
+    GestionarSolicitudesRoutingModule,
+    NgxPaginationModule
   ]
 })
 export class GestionarSolicitudesModule { }

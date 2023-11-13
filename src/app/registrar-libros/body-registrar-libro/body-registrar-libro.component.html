@@ -1,1 +1,93 @@
-Registro de libro
+<!-- component -->
+<div class="min-h-screen bg-gray-50/50">
+    <!-- component -->
+  <div class="flex items-center justify-center p-12">
+    <div class="mx-auto w-full rounded-[5px] max-w-[550px] bg-[#F0EDED]">
+      <form
+        class="py-6 px-9 "
+        action="https://formbold.com/s/FORM_ID"
+        method="POST"
+      >
+        <div class="mb-5">
+          <label
+            for="email"
+            class="mb-3 block text-xl font-semibold text-[#00000]"
+          >
+            Título
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ejemplo: El principito"
+            class="w-full rounded-[20px] border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          />
+        </div>
+
+        <div class="mb-5">
+          <label
+            for="email"
+            class="mb-3 block text-xl font-semibold text-[#00000]"
+          >
+            Autor
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Ejemplo: Anónimo"
+            class="w-full rounded-[20px] border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md "
+          />
+        </div>
+        <div class="md:flex-1 px-4">
+          <div class="mb-6 pt-4">
+            <label class="mb-5 block text-xl font-semibold text-[#00000]">
+              Portada
+            </label>
+
+            <div class="mb-8">
+              <input type="file" name="file" id="file" class="sr-only" />
+              <label
+                for="file"
+                class="relative flex min-h-[200px] items-center bg-white justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
+              >
+                <div>
+                <span class="mb-2 block text-xl font-semibold text-[#07074D]">
+                  Arrastra tu imagen aquí
+                </span>
+                  <span class="mb-2 block text-base font-medium text-[#6B7280]">
+                  O
+                </span>
+                  <span
+                    class="inline-flex rounded border border-[#e0e0e0] py-2 px-7 text-base font-medium text-[#07074D]"
+                  >
+                  Sube la foto
+                </span>
+                </div>
+              </label>
+            </div>
+
+
+
+
+          </div>
+        </div>
+        <div>
+          <button
+            class="hover:shadow-form rounded-[20px] bg-[#0F458E] py-2 px-5 text-center text-base font-semibold text-white outline-none"
+          >
+            Cancelar
+          </button>
+
+          <button
+            class="hover:shadow-form rounded-[20px] bg-[#E67817] py-2 px-5 text-center text-base font-semibold text-white outline-none"
+          >
+            Publicar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+</div>
