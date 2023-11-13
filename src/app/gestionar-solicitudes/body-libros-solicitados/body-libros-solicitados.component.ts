@@ -165,19 +165,4 @@ export class BodyLibrosSolicitadosComponent {
     this.collection.sort((a, b) => a.title.localeCompare(b.title));
   }
 
-  toggleSolicitudes(item: any): void {
-    // Si showSolicitudes es undefined o false, mostrar las solicitudes, de lo contrario, ocultarlas
-    item.showSolicitudes = !item.showSolicitudes;
-    if (item.showSolicitudes) {
-      item.solicitudes = Array.from({ length: 10 }, (_, index) => ({
-        id: index + 1,
-        fechaSolicitud: 'Fecha Solicitud',
-        fechaRecojo: 'Fecha Recojo',
-        fechaMaxDevolucion: 'Fecha Max Devolucion',
-        fechaDevolucion: 'Fecha Devolucion',
-        recogio: 'Recogio',
-        devolvio: 'Devolvio',
-      }));
-    }
-  }
 }

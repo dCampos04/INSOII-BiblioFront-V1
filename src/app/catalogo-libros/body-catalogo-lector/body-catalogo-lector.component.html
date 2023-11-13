@@ -13,9 +13,15 @@
     <div class="bg-white" style="width: 70%; margin-left: 200px">
       <div class="mx-auto grid grid-cols-4 gap-8">
         <div class="flex flex-col items-center relative" *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
-          <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative" >
+          <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative">
             <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full items-center object-cover mb-2">
-            <button class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0" [ngStyle]="{ 'background-color': getStatusColor(item.status) }">{{ item.status }}</button>
+            <button
+              class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0"
+              [ngStyle]="{ 'background-color': getStatusColor(item.status) }"
+              (click)="openModal(item.status)"
+            >
+              {{ item.status }}
+            </button>
           </div>
           <h3 class="text-xl font-bold mb-1">{{ item.title }}</h3>
           <p class="text-sm">{{ item.author }}</p>
@@ -33,20 +39,78 @@
     </div>
 
     <hr class="border-2 mt-4" style="border-color: #0055a1">
-
   </div>
 
   <!-- Sidebar -->
   <div class="w-1/10 p-4" style="background-color: #dce1eb;">
-    <div class="flex items-center py-2 px-4 w-full  mt-2 mb-2" style="background-color: #dce1eb;">
+    <div class="flex items-center py-2 px-4 w-full mt-2 mb-2" style="background-color: #dce1eb;">
       <a routerLink="/catalogoLector" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Lista de libros</a>
       <img src="./assets/VerSolicitudes.png" alt="Icono" class="h-11 ml-4 mr-2 flex items-center">
     </div>
     <hr class="border-2 mb-4" style="border-color: #ffffff">
-    <div class="flex items-center py-2 px-4 w-full  mt-2 mb-2" style="background-color: #dce1eb;">
+    <div class="flex items-center py-2 px-4 w-full mt-2 mb-2" style="background-color: #dce1eb;">
       <a routerLink="/historial/miHistorial" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Mis solicitudes</a>
       <img src="./assets/MisSolicitudes.png" alt="Icono" class="h-11 ml-4 flex items-center">
     </div>
     <hr class="border-2 mb-4" style="border-color: #ffffff">
   </div>
 </div>
+
+
+<!-- Modal -->
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" [ngStyle]="{ 'background-color': modalBackgroundColor }">
+      <!--body-->
+      <div class="relative p-6 flex-auto" >
+        <img [src]="modalImage" alt="Modal Image">
+
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+        <button
+          class="text-black background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+          (click)="closeModal()"
+        >
+          No
+        </button>
+        <button
+          class="text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button" (click)="closeModal()" style="background-color: #d97000">
+            Si
+        </button>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="showModal3" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" [ngStyle]="{ 'background-color': modal3BackgroundColor }">
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <img [src]="modal3Image" alt="Modal Image">
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+        <button
+          class="text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+          (click)="closeModal3()" style="background-color: #d97000"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="opacity-50 fixed inset-0 z-40 bg-black"></div>
+<div *ngIf="showModal3" class="opacity-50 fixed inset-0 z-40 bg-black"></div>

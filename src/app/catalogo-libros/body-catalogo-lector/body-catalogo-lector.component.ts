@@ -153,4 +153,112 @@ export class BodyCatalogoLectorComponent {
     // Ordenar la colección por título de la A a la Z al inicializar el componente
     this.collection.sort((a, b) => a.title.localeCompare(b.title));
   }
+
+  showModal = false;
+  showModal3 = false;
+  modalImage: string = '';
+  modal3Image: string = '';
+  modalBackgroundColor: string = '';
+  modal3BackgroundColor: string = '';
+  modalButtonColor: string = '';
+  modalButtonTextColor: string = '';
+
+  m1 = false;
+  m2 = false;
+  m3 = false;
+
+  // Método para abrir el modal correspondiente
+  openModal(status: string) {
+    switch (status) {
+      case 'Disponible':
+        this.modalImage = 'assets/ModalInicial.jpg.png';
+        this.modalBackgroundColor = '#ece5e5';
+        this.modalButtonColor = '#e47717';
+        this.modalButtonTextColor = 'white';
+        this.showModal = true;
+        this.m1 = true;
+        this.m2 = false;
+        this.m3 = false;
+        break;
+
+      case 'Reservado':
+        this.modalImage = 'assets/ModalInicial.jpg.png';
+        this.modalBackgroundColor = '#ece5e5';
+        this.modalButtonColor = '#e47717';
+        this.modalButtonTextColor = 'white';
+        this.showModal = true;
+        this.m1 = false;
+        this.m2 = true;
+        this.m3 = false;
+        break;
+      case 'No Disp.':
+        this.modalImage = 'assets/SolicitudInvalida.png';
+        this.modalBackgroundColor = '#ece5e5';
+        this.modalButtonColor = '#e47717';
+        this.modalButtonTextColor = 'white';
+        this.showModal = false;
+        this.m1 = false;
+        this.m2 = false;
+        this.m3 = true;
+        this.openModal5()
+        break;
+      default:
+        // En caso de que no haya un modal definido para el estado
+
+    }
+
+  }
+
+  openModal3() {
+        this.modal3Image = 'assets/SolicitudExitosa.png';
+        this.modal3BackgroundColor = '#ece5e5';
+        this.modalButtonColor = '#e47717';
+        this.modalButtonTextColor = 'white';
+    this.showModal3 = true;
+  }
+
+  openModal4() {
+    this.modal3Image = 'assets/SolicitudEspera.png';
+    this.modal3BackgroundColor = '#ece5e5';
+    this.modalButtonColor = '#e47717';
+    this.modalButtonTextColor = 'white';
+    this.showModal3 = true;
+  }
+
+  openModal5() {
+    this.modal3Image = 'assets/SolicitudInvalida.png';
+    this.modal3BackgroundColor = '#ece5e5';
+    this.modalButtonColor = '#e47717';
+    this.modalButtonTextColor = 'white';
+    this.showModal3 = true;
+  }
+
+  // Método para cerrar el modal
+  closeModal() {
+    this.showModal = false;
+    // Limpiar propiedades relacionadas con el modal
+    this.modalImage = '';
+    this.modalBackgroundColor = '';
+    this.modalButtonColor = '';
+    this.modalButtonTextColor = '';
+    if (this.m1){
+      this.openModal3()
+    }
+    if (this.m2){
+      this.openModal4()
+    }
+    if (this.m3){
+      this.openModal5()
+    }
+
+  }
+  closeModal3() {
+
+    this.showModal3 = false;
+    // Limpiar propiedades relacionadas con el modal
+    this.modal3Image = '';
+    this.modal3BackgroundColor = '';
+    this.modalButtonColor = '';
+    this.modalButtonTextColor = '';
+  }
 }

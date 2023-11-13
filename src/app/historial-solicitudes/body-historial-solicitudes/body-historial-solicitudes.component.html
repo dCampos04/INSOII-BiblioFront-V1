@@ -1,3 +1,63 @@
-<main>
-  <p>Historial de solicitudes del lector</p>
-</main>
+<div class="flex h-screen">
+<!-- Contenido principal -->
+<div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
+  <h1 class="text-2xl font-bold text-left mb-4">
+    <span class="text-blue" style="color: #0f448d">LIBROS </span><span class="text-orange" style="color: #e47717">SOLICITADOS</span>
+  </h1>
+  <hr class="border-2 mb-4" style="border-color: #e47717">
+  <!-- card con libros -->
+<div class="container" style="height: 50px">
+  <div class="bg-white" style="width: 35%; margin-left: 560px">
+    <!-- Tabla de libros con solicitudes -->
+    <table class="table-auto w-full mx-auto">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 text-center">PORTADA</th>
+        <th class="px-4 py-2 text-center">TÍTULO</th>
+        <th class="px-4 py-2 text-center">AUTOR</th>
+        <th class="px-4 py-2 text-center">ESTADO</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- Repite para cada libro con estado "Reservado" o "No disponible" -->
+      <tr *ngFor="let item of collection |  paginate: { itemsPerPage: 5, currentPage: p }">
+        <td class="border px-4 py-2">
+          <!-- Contenedor de la tarjeta (card) -->
+          <div class="w-16 h-24 overflow-hidden rounded-lg shadow-md mb-2 mt-2">
+            <!-- Imagen del libro -->
+            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full object-cover mb-2">
+          </div>
+        </td>
+        <td class="border px-4 py-2 text-center">{{ item.title }}</td>
+        <td class="border px-4 py-2 text-center">{{ item.author }}</td>
+        <td class="border px-4 py-2 text-center" [ngStyle]="{ 'color': getStatusColor(item.estadopersonal), 'font-weight': 'bold' }">{{ item.estadopersonal }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  <!--- Agregar paginacion --->
+  <div class="pagination mt-3" style="width: 70%; margin-left: 560px; margin-top: 665px">
+    <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
+  </div>
+
+  <hr class="border-2 mt-4" style="border-color: #0055a1">
+
+</div>
+
+<!-- Sidebar -->
+  <div class="w-1/10 p-4" style="background-color: #dce1eb;">
+    <div class="flex items-center py-2 px-4 w-full mt-2 mb-2" style="background-color: #dce1eb;">
+      <a routerLink="/catalogoLector" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Lista de libros</a>
+      <img src="./assets/VerSolicitudes.png" alt="Icono" class="h-11 ml-4 mr-2 flex items-center">
+    </div>
+    <hr class="border-2 mb-4" style="border-color: #ffffff">
+    <div class="flex items-center py-2 px-4 w-full mt-2 mb-2" style="background-color: #dce1eb;">
+      <a routerLink="/historial/miHistorial" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Mis solicitudes</a>
+      <img src="./assets/MisSolicitudes.png" alt="Icono" class="h-11 ml-4 flex items-center">
+    </div>
+    <hr class="border-2 mb-4" style="border-color: #ffffff">
+  </div>
+</div>

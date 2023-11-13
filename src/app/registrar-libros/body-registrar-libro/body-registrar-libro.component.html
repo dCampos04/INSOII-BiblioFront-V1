@@ -1,93 +1,124 @@
-<!-- component -->
-<div class="min-h-screen bg-gray-50/50">
-    <!-- component -->
-  <div class="flex items-center justify-center p-12">
-    <div class="mx-auto w-full rounded-[5px] max-w-[550px] bg-[#F0EDED]">
-      <form
-        class="py-6 px-9 "
-        action="https://formbold.com/s/FORM_ID"
-        method="POST"
-      >
-        <div class="mb-5">
-          <label
-            for="email"
-            class="mb-3 block text-xl font-semibold text-[#00000]"
-          >
-            Título
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Ejemplo: El principito"
-            class="w-full rounded-[20px] border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-          />
-        </div>
+<div class="flex h-screen">
+  <!-- Contenido principal -->
+  <div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
+    <h1 class="text-2xl font-bold text-left mb-4">
+      <span class="text-blue" style="color: #0f448d">REGISTRAR </span><span class="text-orange" style="color: #e47717">LIBROS</span>
+    </h1>
+    <hr class="border-2 mb-4" style="border-color: #e47717">
+    <!-- card con libros -->
+    <div class="card" style="width: 60%; margin-left: 350px; background-color: #ece9e9">
+      <form>
+        <div class="grid grid-cols-2 gap-4" >
+          <!-- Columna izquierda -->
+          <div>
 
-        <div class="mb-5">
-          <label
-            for="email"
-            class="mb-3 block text-xl font-semibold text-[#00000]"
-          >
-            Autor
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Ejemplo: Anónimo"
-            class="w-full rounded-[20px] border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md "
-          />
-        </div>
-        <div class="md:flex-1 px-4">
-          <div class="mb-6 pt-4">
-            <label class="mb-5 block text-xl font-semibold text-[#00000]">
-              Portada
-            </label>
+            <div class="mb-6">
+              <label for="titulo" class="block mt-5 mb-2 text-sm font-medium text-gray-900 dark:text-white">TITULO:</label>
+              <input type="text" id="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            </div>
+            <div class="mb-6">
+              <label for="autor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AUTOR:</label>
+              <input type="text" id="autor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+            </div>
 
-            <div class="mb-8">
-              <input type="file" name="file" id="file" class="sr-only" />
-              <label
-                for="file"
-                class="relative flex min-h-[200px] items-center bg-white justify-center rounded-md border border-dashed border-[#e0e0e0] p-12 text-center"
-              >
-                <div>
-                <span class="mb-2 block text-xl font-semibold text-[#07074D]">
-                  Arrastra tu imagen aquí
-                </span>
-                  <span class="mb-2 block text-base font-medium text-[#6B7280]">
-                  O
-                </span>
-                  <span
-                    class="inline-flex rounded border border-[#e0e0e0] py-2 px-7 text-base font-medium text-[#07074D]"
-                  >
-                  Sube la foto
-                </span>
-                </div>
-              </label>
+            <div class="mb-6">
+              <label for="resumen" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RESUMEN:</label>
+              <input type="text" id="resumen" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-6">
+              <label for="isbn" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN:</label>
+              <input type="text" id="isbn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-6">
+              <label for="Año" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AÑO DE PUBLICACION:</label>
+              <input type="text" id="Año" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-6">
+              <label for="editorial" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EDITORIAL:</label>
+              <input type="text" id="editorial" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
 
 
+            <label for="categoriaflot" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CATEGORIAS</label>
+            <select id="categoriaflot" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option>Historia</option>
+              <option>Ciencia</option>
+              <option>Matematicas</option>
+              <option>Tecnologia</option>
+              <option>Comico</option>
+            </select>
+          </div>
 
+          <!-- Columna derecha -->
+          <div>
+            <label for="portada" class="block mt-5 mb-3 text-gray-700">PORTADA:</label>
+            <div class="w-full mb-4 border border-gray-400 rounded-md overflow-hidden" style="height: 600px">
+              <img id="preview" src="#" alt="Preview" class="w-full h-full object-cover" />
+            </div>
+            <input type="file" id="portada" name="portada" class="hidden" (change)="mostrarPrevisualizacion($event)" />
 
+            <label for="subirFoto" class="block mb-2 text-gray-700 cursor-pointer">
+              Subir Foto
+              <input type="file" id="subirFoto" name="subirFoto" class="hidden" (change)="mostrarPrevisualizacion($event)" />
+            </label>
           </div>
         </div>
-        <div>
-          <button
-            class="hover:shadow-form rounded-[20px] bg-[#0F458E] py-2 px-5 text-center text-base font-semibold text-white outline-none"
-          >
-            Cancelar
-          </button>
 
-          <button
-            class="hover:shadow-form rounded-[20px] bg-[#E67817] py-2 px-5 text-center text-base font-semibold text-white outline-none"
-          >
-            Publicar
-          </button>
+        <!-- Botones al final -->
+        <div class="flex justify-end">
+          <button (click)="openModal()" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md">Cancelar</button>
+          <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Aceptar</button>
         </div>
       </form>
     </div>
+
+    <hr class="border-2 mt-4" style="border-color: #0055a1">
+
   </div>
 
+  <!-- Sidebar -->
 
+
+  <div class="w-1/10 p-4" style="background-color: #dce1eb;">
+
+    <div class="flex items-center py-2 px-4 w-full mt-2 mb-2" style="background-color: #dce1eb;">
+      <a routerLink="/registrar/registro" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Registrar libro</a>
+      <img src="./assets/agregar.png" alt="Icono" class="h-10 ml-4 mr-1 flex items-center">
+    </div>
+    <hr class="border-2 mb-4" style="border-color: #ffffff">
+    <div class="flex items-center py-2 px-4 w-full  mt-2 mb-2" style="background-color: #dce1eb;">
+      <a routerLink="/catalogoBiblio" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Lista de libros</a>
+      <img src="./assets/VerSolicitudes.png" alt="Icono" class="h-11 ml-4 mr-2 flex items-center">
+    </div>
+    <hr class="border-2 mb-4" style="border-color: #ffffff">
+    <div class="flex items-center py-2 px-4 w-full  mt-2 mb-2" style="background-color: #dce1eb;">
+      <a routerLink="/gestionar/librosSolicitados" class="flex items-center w-full text-black font-bold hover:text-red-600 justify-end">Ver solicitudes</a>
+      <img src="./assets/lista.png" alt="Icono" class="h-11 ml-4 flex items-center">
+    </div>
+    <hr class="border-2 mb-4" style="border-color: #ffffff">
+
+  </div>
 </div>
+
+
+<div *ngIf="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+  <div class="relative w-auto my-6 mx-auto max-w-6xl">
+    <!--content-->
+    <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none" style="background-color: #ece5e5">
+      <!--body-->
+      <div class="relative p-6 flex-auto">
+        <img src="assets/moduloAgregar.png">
+      </div>
+      <!--footer-->
+      <div class="flex items-center justify-center p-6 border-t border-solid border-blueGray-200 rounded-b">
+        <button
+          class="text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mb-1 ease-linear transition-all duration-150"
+          type="button" (click)="closeModal()" routerLink="/catalogoBiblio" style="background-color: #d97000">
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showModal" class="opacity-50 fixed inset-0 z-40 bg-black"></div>
