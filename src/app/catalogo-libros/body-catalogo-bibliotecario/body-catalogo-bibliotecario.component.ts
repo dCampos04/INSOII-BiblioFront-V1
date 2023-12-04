@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { LibroService} from "../../Services/libros.service";
+import { Page } from "../../Modelos/Page";
+import { DatosListadoLibro } from "../../Modelos/DatosListadoLibro";
+
 
 @Component({
   selector: 'app-body-catalogo-bibliotecario',
   templateUrl: './body-catalogo-bibliotecario.component.html',
   styleUrls: ['./body-catalogo-bibliotecario.component.css']
 })
-export class BodyCatalogoBibliotecarioComponent {
+export class BodyCatalogoBibliotecarioComponent implements OnInit{
   p: number = 1;
+  libros: Page<DatosListadoLibro>;
 
   collection: any[] = [
     {
@@ -156,9 +161,22 @@ export class BodyCatalogoBibliotecarioComponent {
     }
   }
 
-  constructor() {
+  constructor(private libroService: LibroService) {
     // Ordenar la colección por título de la A a la Z al inicializar el componente
     this.collection.sort((a, b) => a.title.localeCompare(b.title));
   }
+
+  ngOnInit(): void {
+    this.listarLibros();
+  }
+
+  listarLibros(): void {
+    this.libroService.listarLibros(1, 8) // Puedes ajustar la página y el tamaño según tus necesidades
+      .subscribe(libros => this.libros = libros);
+    console.log("libros: ", this.libros )
+  }
+
+
+
 
 }
