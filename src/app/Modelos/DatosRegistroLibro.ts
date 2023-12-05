@@ -1,13 +1,12 @@
-export interface DatosListadoLibro {
+export interface DatosRegistroLibro {
   titulo: string;
-  estado: string;
   portada: string;
   edicion: string;
   categoria: string;
   resumen: string;
   isbn: string;
-  fechaPublicacion: string;
+  fechaPublicacion: Date;
   codigoPublico: string;
+  autorNombres: string[];
   editorialNombre: string;
-  autoreNombres: [];
 }

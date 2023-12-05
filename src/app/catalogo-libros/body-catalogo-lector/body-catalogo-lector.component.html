@@ -12,19 +12,17 @@
     </div>
     <div class="bg-white" style="width: 70%; margin-left: 200px">
       <div class="mx-auto grid grid-cols-4 gap-8">
-        <div class="flex flex-col items-center relative" *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
+
+     <div class="flex flex-col items-center relative" *ngFor="let item of libros | paginate: { itemsPerPage: 8, currentPage: p }">
           <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative">
-            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full items-center object-cover mb-2">
-            <button
-              class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0"
-              [ngStyle]="{ 'background-color': getStatusColor(item.status) }"
-              (click)="openModal(item.status)"
-            >
-              {{ item.status }}
+            <img src="{{ item.portada }}" alt="{{ item.titulo  }}" class="h-full w-full items-center object-cover mb-2">
+            <button class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0"
+              [ngStyle]="{ 'background-color': getStatusColor(item.estado) }" (click)="openModal(item.estado)">
+              {{ item.estado }}
             </button>
           </div>
-          <h3 class="text-xl font-bold mb-1">{{ item.title }}</h3>
-          <p class="text-sm">{{ item.author }}</p>
+          <h3 class="text-xl font-bold mb-1">{{ item.titulo }}</h3>
+          <p class="text-sm">{{ item.autoreNombres }}</p>
         </div>
       </div>
     </div>
@@ -72,7 +70,7 @@
         <button
           class="text-black background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
-          (click)="closeModal()"
+          (click)="closeModal2()"
         >
           No
         </button>

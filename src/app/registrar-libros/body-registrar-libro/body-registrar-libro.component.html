@@ -1,77 +1,94 @@
 <div class="flex h-screen">
-  <!-- Contenido principal -->
   <div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
     <h1 class="text-2xl font-bold text-left mb-4">
       <span class="text-blue" style="color: #0f448d">REGISTRAR </span><span class="text-orange" style="color: #e47717">LIBROS</span>
     </h1>
     <hr class="border-2 mb-4" style="border-color: #e47717">
-    <!-- card con libros -->
     <div class="card" style="width: 60%; margin-left: 350px; background-color: #ece9e9">
-      <form>
-        <div class="grid grid-cols-2 gap-4" >
-          <!-- Columna izquierda -->
-          <div>
 
-            <div class="mb-6">
-              <label for="titulo" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">TÍTULO:<span class="required"></span></label>
-              <input [(ngModel)]="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" id="titulo" name="titulo" required>
-            </div>
+      <form #libroForm="ngForm" (ngSubmit)="agregarLibro()">
 
-            <div class="mb-6">
-              <label for="autor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AUTOR:<span class="required"></span></label>
-              <input [(ngModel)]="autor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="text" id="autor" name="autor" required>
-            </div>
+      <div class="grid grid-cols-2 gap-4 ">
+          <div class="mt-5 mb-5">
 
-            <div class="mb-6">
-              <label for="resumen" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">RESUMEN:</label>
-              <input type="text" id="resumen" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-6">
-              <label for="isbn" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN:</label>
-              <input type="text" id="isbn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Título: *
+              <input [(ngModel)]="libro.titulo" placeholder="Escribe el titulo del libro" name="titulo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></label>
 
-            <div class="mb-6">
-              <label for="Año" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">AÑO DE PUBLICACION:</label>
-              <input type="text" id="Año" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-6">
-              <label for="editorial" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EDITORIAL:</label>
-              <input type="text" id="editorial" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Código Público: *
+              <input [(ngModel)]="libro.codigoPublico" placeholder="Escribe un codigo unico" name="codigoPublico"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"required></label>
+
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Autor(es): *
+              <input [(ngModel)]="autorNombresInput" name="autorNombres" placeholder="Si tienes mas de un autor separalos por una coma o guion" (change)="onAutorNombresChange()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></label>
+
+
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Edición:
+              <input [(ngModel)]="libro.edicion" name="edicion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></label>
+
+
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Resumen:
+              <textarea [(ngModel)]="libro.resumen" name="resumen" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea></label>
+
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ISBN:
+              <input [(ngModel)]="libro.isbn" name="isbn" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></label>
+
+<!--            <label>Fecha de Publicación: <input type="text" [(ngModel)]="libro.fechaPublicacion" name="fechaPublicacion" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></label>-->
+
+
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Publicación:
+              <input type="date" [(ngModel)]="libro.fechaPublicacion" name="fechaPublicacion"
+                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required [max]="getCurrentDate()">
+            </label>
+
 
 
             <label for="categoriaflot" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CATEGORIAS</label>
-            <select id="categoriaflot" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option>Historia</option>
-              <option>Ciencia</option>
-              <option>Matematicas</option>
-              <option>Tecnologia</option>
-              <option>Comico</option>
+            <select [(ngModel)]="libro.categoria"  name="categoria" id="categoriaflot" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option value="PROGRAMACION">PROGRAMACION</option>
+              <option value="Ciencia">Ciencia</option>
+              <option value="Matematicas">Matematicas</option>
+              <option value="Tecnologia">Tecnologia</option>
+              <option value="Comico">Comico</option>
             </select>
+
+
+
+            <label>Editorial Nombre: <input [(ngModel)]="libro.editorialNombre" name="editorialNombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></label>
+
           </div>
-
-          <!-- Columna derecha -->
           <div>
-            <label for="portada" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">PORTADA:</label>
-            <div class="w-full mb-4 border border-gray-400 rounded-md overflow-hidden" style="height: 600px">
-              <img id="preview" src="#" alt="Preview" class="w-full h-full object-cover" />
-            </div>
-            <input [(ngModel)]="portada" type="file" id="portada" name="portada" class="hidden" (change)="mostrarPrevisualizacion($event)" />
+            <!--    <label>Archivo: <input type="file" (change)="onFileChange($event)" accept=".jpg, .jpeg, .png"></label>-->
 
-            <label for="subirFoto" class="block mb-2 text-gray-700 cursor-pointer">
-              Subir Foto
-              <input [(ngModel)]="portada" type="file" id="subirFoto" name="subirFoto" class="hidden" (change)="mostrarPrevisualizacion($event)" />
-            </label>
+
+            <div>
+
+                <label for="portada" class="block mb-2 mt-5 text-sm font-medium text-gray-900 dark:text-white">Portada: *</label>
+                <div class="w-full mb-4 border border-gray-400 rounded-md overflow-hidden" style="height: 600px">
+                  <img id="preview" src="#" alt="Preview" class="w-full h-full object-cover" />
+                  <input [(ngModel)]="libro.portada" (change)="mostrarPrevisualizacion($event); onFileSelected($event)" type="file" id="portada" name="portada" class="hidden" accept="image/*" />
+                </div>
+
+
+
+
+              <label for="subirFoto" class="block mb-2 text-gray-700 cursor-pointer border-gray-400">
+                Subir Foto
+                <input [(ngModel)]="libro.portada" (change)="mostrarPrevisualizacion($event); onFileSelected($event)" type="file" id="subirFoto" name="subirFoto" class="hidden" accept="image/*" />
+              </label>
+            </div>
+
+            <div class="flex justify-end mb-10">
+              <button routerLink="/catalogoBiblio" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md" style="background-color: #0054a0">Cancelar</button>
+              <button type="submit" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md" style="background-color: #e07517">aceptar</button>
+            </div>
           </div>
         </div>
+
+      </form>
+
 
         <!-- Botones al final -->
-        <div class="flex justify-end">
-          <button routerLink="/catalogoBiblio" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md" style="background-color: #0054a0">Cancelar</button>
-          <button (click)="enviarFormulario()" type="button" class="bg-blue-500 text-white py-2 px-4 mr-4 rounded-md" style="background-color: #e07517">aceptar</button>
-        </div>
-      </form>
+
+
     </div>
 
     <hr class="border-2 mt-4" style="border-color: #0055a1">
@@ -145,3 +162,10 @@
 
 <div *ngIf="showModal" class="opacity-50 fixed inset-0 z-40 bg-black"></div>
 <div *ngIf="showModal2" class="opacity-50 fixed inset-0 z-40 bg-black"></div>
+
+
+
+<div>
+  <h2>Agregar Libro</h2>
+
+</div>

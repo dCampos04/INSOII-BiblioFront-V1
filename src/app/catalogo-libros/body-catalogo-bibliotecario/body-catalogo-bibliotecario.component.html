@@ -2,6 +2,7 @@
   <!-- Contenido principal -->
   <div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
     <h1 class="text-2xl font-bold text-left mb-4">
+
       <span class="text-blue" style="color: #0f448d">CATÁLOGO </span><span class="text-orange" style="color: #e47717">DE LIBROS</span>
     </h1>
     <hr class="border-2 mb-4" style="border-color: #e47717">
@@ -10,20 +11,36 @@
       <br>
       <br>
     </div>
-    <div class="bg-white" style="width: 70%; margin-left: 200px">
-      <div class="mx-auto grid grid-cols-4 gap-8">
-        <div class="flex flex-col items-center relative" *ngFor="let item of collection | paginate: { itemsPerPage: 8, currentPage: p }">
-          <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative" >
-            <img src="{{ item.image }}" alt="{{ item.title }}" class="h-full w-full items-center object-cover mb-2">
-            <button class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0" [ngStyle]="{ 'background-color': getStatusColor(item.status) }">{{ item.status }}</button>
+    <div *ngIf="filtro===true">
+      <div class="bg-white" style="width: 70%; margin-left: 200px">
+        <div class="mx-auto grid grid-cols-4 gap-8">
+          <div class="flex flex-col items-center relative" *ngFor="let item of libros | paginate: { itemsPerPage: 8, currentPage: p }">
+            <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative" >
+              <img src="{{ item.portada }}" alt="{{ item.titulo }}" class="h-full w-full items-center object-cover mb-2">
+              <button class="absolute text-black p-1 rounded-md w-24 h-10 bottom-0 right-0" [ngStyle]="{ 'background-color': getStatusColor(item.estado) }">{{ item.estado }}</button>
+            </div>
+            <h3 class="text-xl font-bold mb-1">{{ item.titulo }}</h3>
+            <p class="text-sm">{{ item.autoreNombres }}</p>
           </div>
-          <h3 class="text-xl font-bold mb-1">{{ item.title }}</h3>
-          <p class="text-sm">{{ item.author }}</p>
         </div>
       </div>
+      <div class="bg-white" style="width: 70%; margin-left: 200px">
+        <br>
+      </div>
     </div>
-    <div class="bg-white" style="width: 70%; margin-left: 200px">
-      <br>
+    <div *ngIf="filtro===false">
+      <div class="bg-white" style="width: 70%; margin-left: 200px">
+        <div class="mx-auto grid grid-cols-4 gap-8">
+          <div class="flex flex-col items-center relative">
+            <div class="filtro flex items-center justify-center w-full" style="height: 70vh; margin-left: 90vh">
+              <h1 class="text-center">Por el momento no hay libros registrados...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white" style="width: 70%; margin-left: 200px">
+        <br>
+      </div>
     </div>
 
     <!--- Agregar paginacion --->
@@ -34,6 +51,7 @@
     <hr class="border-2 mt-4" style="border-color: #0055a1">
 
   </div>
+
 
   <!-- Sidebar -->
 

@@ -1,60 +1,53 @@
-<!--<div class="flex h-screen items-center" style="background-image: url('./assets/fondo.png'); background-size: cover; background-position: center;">-->
-<!--  <div class="flex-1 p-4 items-center" style="background-color: rgba(238,235,235,0); width: 100%; height: 100%;">-->
-
-<!--    <div class="card" style="width: 100%; height: 80%;  background-color: rgba(236,233,233,0)">-->
-
-<!--      <div class="flex justify-center">-->
-<!--        <button routerLink="/catalogoLector" type="button" class="text-white w-32 h-20 mr-10 rounded-md" style="background-color: #d97000; margin-top: 150px; margin-right: -169px">LECTOR</button>-->
-<!--        <button routerLink="/catalogoBiblio" type="button" class="text-white w-32 h-20 ml-10 rounded-md"  style="background-color: #0049ac; margin-top: 250px; margin-right: 1700px">BIBLIOTECARIO</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 
 <button routerLink="catalogoLector">LECTOR</button>
 <button routerLink="catalogoBiblio">BIBLIOTECARIO</button>
 
 
 
-<!--<input type="file" (change)="onFileSelected($event)" accept="image/*">-->
-
 <div class="lineaAzul" style="background-color: #004492; height: 25px">
 </div>
 
 <main>
   <div class="flex">
-    <div class="w-1/2 p-4 flex items-center justify-center flex-col">
+    <div class="w-1/2 p-4 flex items-center justify-center flex-col" style="margin-left: 220px">
       <!-- Primera fila (80%) -->
+      <br>
+      <br>
+        <img src="./assets/carru1.png">
+
+      <div class="h-1/5 flex flex-col items-start" style="margin-left: -350px; margin-top: 55px">
+        <p style="color: #fda400; font-size: 1.2em; font-weight: bold;">DE INTERÉS</p>
+      </div>
+
+      <div class="h-1/5 flex items-start" style="margin-left: -280px; margin-top: 10px">
+
+        <a href="https://static.upao.edu.pe/upload/manuales/Manual_Sistema_de_Matricula_V2_1.pdf"><img src="assets/img1abajo.jpg" style="margin-right: 20px"></a>
+        <a href="https://campusvirtual.upao.edu.pe/sl.aspx?f=YFAMHOR"> <img src="assets/img2abajo.jpg" style="margin-right: 20px"></a>
+        <a href="https://campusvirtual.upao.edu.pe/sl.aspx?f=YFAMHOR"><img src="assets/img3abajo.jpg"></a>
 
 
-
-
-
-
-
-
-      <div class="h-4/5 mb-4">
-        <h2>Columna 1 - Parte superior (80%)</h2>
-        <p>Contenido de la parte superior...</p>
       </div>
 
 
-
-      <!-- Segunda fila (20%) -->
-      <div class="h-1/5">
-        <h2>Columna 1 - Parte inferior (20%)</h2>
-        <p>Contenido de la parte inferior...</p>
-      </div>
     </div>
-    <div class="w-1/2 p-4 flex items-center justify-center flex-col">
+
+
+
+    <div class="w-1/2 p-4 flex items-center justify-center flex-col" style="margin-left: -400px">
 
        <br>
       <img src="./assets/bienbenidos.png">
+        <div *ngIf="ccc===true">
+          <p class="mr-2 text-sm" style="margin-right: 45px; color: #ff0000">Credenciales incorrectas intente otra vez...
+          </p>
+        </div>
+      <div *ngIf="bbb===true">
+        <p class="mr-2 text-sm" style="margin-right: 28px; color: #ff0000">Error al verificar código de la imagen, vuelva<br>a intentarlo
+        </p>
+      </div>
 
-
-        <!-- Inputs de usuario y contraseña -->
-        <input type="text" placeholder="usuario" class="mt-2 p-2 border border-gray-400 w-1/3">
-        <input type="password" placeholder="contraseña" class="mt-2 p-2 border border-gray-400 w-1/3">
+        <input [(ngModel)]="credentials.username" type="text" placeholder="usuario" class="mt-2 p-2 border border-gray-400 w-1/3">
+        <input [(ngModel)]="credentials.password" type="password" placeholder="contraseña" class="mt-2 p-2 border border-gray-400 w-1/3">
 
 
       <div class="flex items-center mt-2">
@@ -65,13 +58,13 @@
 
       <div class="flex items-center mt-2 mb-2">
         <p class="mr-2 text-sm" style="margin-right: 53px">Ingrese código de <br> verificación</p>
-        <input type="text" placeholder=" " class="mt-2 p-2 border border-gray-400" style="width: 140px; height: 35px">
+        <input [(ngModel)]="capcha" type="text" placeholder=" " class="mt-2 p-2 border border-gray-400" style="width: 140px; height: 35px">
       </div>
 
       <div class="flex items-center mt-2">
 
         <a href="https://campusvirtual.upao.edu.pe/sl.aspx?f=ygirepa" class="text-blue-500 underline mr-2 text-sm " style="margin-right: 30px">¿Olvidé mi contraseña?</a>
-        <a routerLink="/catalogoBiblio"><img src="./assets/iniciasesionIMG.jpg"></a>
+        <button><img (click)="onSubmit()" src="./assets/iniciasesionIMG.jpg"></button>
       </div>
 
       <hr class="border-t border-gray-400 h-1 mx-2" style="width: 300px; margin-top: 15px">
@@ -90,11 +83,6 @@
     </div>
   </div>
 </main>
-
-
-
-
-
 
 
 

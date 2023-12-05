@@ -6,6 +6,8 @@ import { BodyCatalogoLectorComponent } from './body-catalogo-lector/body-catalog
 import { BodyCatalogoBibliotecarioComponent } from './body-catalogo-bibliotecario/body-catalogo-bibliotecario.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     CatalogoLibrosRoutingModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ]
 })
 export class CatalogoLibrosModule {
