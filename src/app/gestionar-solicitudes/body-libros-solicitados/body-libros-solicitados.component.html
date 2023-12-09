@@ -16,12 +16,13 @@
             <th class="px-4 py-2 text-center">PORTADA</th>
             <th class="px-4 py-2 text-center">TÍTULO</th>
             <th class="px-4 py-2 text-center">AUTOR</th>
+            <th class="px-4 py-2 text-center">CODIGO</th>
             <th class="px-4 py-2 text-center">SOLICITUDES</th>
           </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="collection.length > 0">
           <!-- Repite para cada libro con estado "Reservado" o "No disponible" -->
-          <tr *ngFor="let item of collection | bookFilter: ['Reservado', 'No Disp.'] | paginate: { itemsPerPage: 5, currentPage: p }">
+          <tr *ngFor="let item of collection | bookFilter: ['RESERVADO', 'NODISPONIBLE'] | paginate: { itemsPerPage: 5, currentPage: p }">
             <td class="border px-4 py-2">
               <!-- Contenedor de la tarjeta (card) -->
               <div class="w-16 h-24 overflow-hidden rounded-lg shadow-md mb-2 mt-2">
@@ -31,11 +32,16 @@
             </td>
             <td class="border px-4 py-2 text-center">{{ item.title }}</td>
             <td class="border px-4 py-2 text-center">{{ item.author }}</td>
+            <td class="border px-4 py-2 text-center">{{ item.codigo }}</td>
             <td class="border px-4 py-2 text-center">
               <!-- Botón "Ver solicitudes" -->
               <button routerLink="/gestionar/gestion" class="text-white p-1 rounded-md w-24 h-15" [ngStyle]="{ 'background-color': getStatusColor(item.status) }">Ver solicitudes</button>
             </td>
           </tr>
+          </tbody>
+
+          <tbody *ngIf="collection.length === 0">
+            <h2>Aun no hay solicitudes disponibles...</h2>
           </tbody>
         </table>
       </div>

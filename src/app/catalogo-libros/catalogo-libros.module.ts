@@ -7,6 +7,7 @@ import { BodyCatalogoBibliotecarioComponent } from './body-catalogo-bibliotecari
 import {NgxPaginationModule} from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BodyInicioComponent } from './body-inicio/body-inicio.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     CatalogoLibrosComponent,
     BodyCatalogoLectorComponent,
-    BodyCatalogoBibliotecarioComponent
+    BodyCatalogoBibliotecarioComponent,
+    BodyInicioComponent
   ],
   imports: [
     CommonModule,

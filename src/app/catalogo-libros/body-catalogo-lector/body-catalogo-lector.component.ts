@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { LibroService } from "../../Services/libros.service";
 import { DatosListadoLibro } from "../../Modelos/DatosListadoLibro";
+import { SharedService} from "../../Services/shared.service";
 
 @Component({
   selector: 'app-body-catalogo-lector',
@@ -12,6 +13,8 @@ export class BodyCatalogoLectorComponent implements OnInit{
   page = 0;
   size = 8;
   libros: DatosListadoLibro[] = [];
+  filtro:boolean=false;
+
 
   getStatusColor(status: string): string {
     switch (status) {
@@ -26,25 +29,53 @@ export class BodyCatalogoLectorComponent implements OnInit{
     }
   }
 
-  constructor(private libroService: LibroService) {
+  constructor(private libroService: LibroService, private sharedService: SharedService) {
     // Ordenar la colección por título de la A a la Z al inicializar el componente
     this.libros.sort((a, b) => a.titulo.localeCompare(b.titulo));
   }
 
   ngOnInit(): void {
     this.cargarLibros();
+    this.cargarLibros2();
+
   }
+
+  lLibros: any[] = [];
+
+  cargarLibros2(): void {
+    this.libroService.listarLibros(this.page, this.size)
+      .subscribe((libros: DatosListadoLibro[]) => {
+        console.log("Data from service:", libros);
+        this.lLibros = libros.map(libro => ({
+          ...libro,
+          portada: `data:image/png;base64, ${libro.portada}`,
+          autoreNombres: Array.isArray(libro.autoreNombres) ? libro.autoreNombres.join(', ') : libro.autoreNombres
+        }));
+        console.log("Data from service2: ", this.lLibros);
+        this.filtro = this.lLibros.length !== 0;
+        console.log('estado:', this.filtro);
+      });
+  }
+
 
   cargarLibros(): void {
     this.libroService.listarLibros(this.page, this.size)
       .subscribe((libros: DatosListadoLibro[]) => {
         console.log("Data from service:", libros);
-        this.libros = libros;
-        console.log("Data from service:", libros);
-
-
+        this.libros = libros.map(libro => ({
+          ...libro,
+          portada: `data:image/png;base64, ${libro.portada}`,
+          autoreNombres: Array.isArray(libro.autoreNombres) ? libro.autoreNombres.join(', ') : libro.autoreNombres
+        }));
+        console.log("Data from service2: ", this.libros);
+        this.filtro = this.libros.length !== 0;
+        console.log('estado:', this.filtro);
       });
   }
+
+
+
+
 
   showModal = false;
   showModal3 = false;
@@ -128,6 +159,7 @@ export class BodyCatalogoLectorComponent implements OnInit{
 
   // Método para cerrar el modal
   closeModal() {
+
     this.showModal = false;
     // Limpiar propiedades relacionadas con el modal
     this.modalImage = '';
@@ -159,4 +191,7 @@ export class BodyCatalogoLectorComponent implements OnInit{
     this.modalButtonColor = '';
     this.modalButtonTextColor = '';
   }
+
+
+
 }

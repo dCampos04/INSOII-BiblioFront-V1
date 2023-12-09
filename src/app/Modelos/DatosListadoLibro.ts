@@ -1,7 +1,6 @@
 export interface DatosListadoLibro {
   titulo: string;
   estado: string;
-  portada: string;
   edicion: string;
   categoria: string;
   resumen: string;
@@ -9,5 +8,6 @@ export interface DatosListadoLibro {
   fechaPublicacion: string;
   codigoPublico: string;
   editorialNombre: string;
-  autoreNombres: [];
+  autoreNombres: string | string[];
+  portada: string;
 }

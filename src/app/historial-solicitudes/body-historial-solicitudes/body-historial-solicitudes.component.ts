@@ -10,7 +10,6 @@ export class BodyHistorialSolicitudesComponent {
   p: number = 1;
 
 
-
   collection: any[] = [
     {
       title: 'Crimen y castigo',

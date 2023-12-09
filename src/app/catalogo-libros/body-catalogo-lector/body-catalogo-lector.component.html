@@ -1,43 +1,66 @@
-<div class="flex h-screen">
+<div class="flex h-screen" style="height: 105vh">
   <!-- Contenido principal -->
   <div class="flex-1 p-4 items-center" style="background-color: #eeebeb;">
     <h1 class="text-2xl font-bold text-left mb-4">
+
       <span class="text-blue" style="color: #0f448d">CATÁLOGO </span><span class="text-orange" style="color: #e47717">DE LIBROS</span>
     </h1>
     <hr class="border-2 mb-4" style="border-color: #e47717">
     <!-- card con libros -->
-    <div class="bg-white" style="width: 70%; margin-left: 200px">
+    <div class="bg-white" style="width: 80%; margin-left: 150px">
       <br>
       <br>
     </div>
-    <div class="bg-white" style="width: 70%; margin-left: 200px">
-      <div class="mx-auto grid grid-cols-4 gap-8">
+    <div *ngIf="filtro===true">
+      <div class="bg-white" style="width: 80%; margin-left: 150px">
+        <div class="cardContenedor" style="background-color: rgba(255,0,0,0); height: 75vh">
 
-     <div class="flex flex-col items-center relative" *ngFor="let item of libros | paginate: { itemsPerPage: 8, currentPage: p }">
-          <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative">
-            <img src="{{ item.portada }}" alt="{{ item.titulo  }}" class="h-full w-full items-center object-cover mb-2">
-            <button class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0"
-              [ngStyle]="{ 'background-color': getStatusColor(item.estado) }" (click)="openModal(item.estado)">
-              {{ item.estado }}
-            </button>
+          <div class="mx-auto grid grid-cols-5 gap-2">
+            <div class="flex flex-col items-center relative" *ngFor="let item of libros | paginate: { itemsPerPage: 10, currentPage: p }">
+              <div class="w-48 h-72 overflow-hidden rounded-lg shadow-md relative" >
+
+                <img src="{{ item.portada }}" alt="{{ item.titulo }}" class="h-full w-full items-center object-cover mb-2">
+                <button class="absolute text-black p-1 rounded-md w-24 h-8 bottom-0 right-0"
+                        [ngStyle]="{ 'background-color': getStatusColor(item.estado) }" (click)="openModal(item.estado)">
+                  {{ item.estado }}
+                </button>
+              </div>
+              <h3 class="text-xl font-bold mb-1 text-center mt-3">{{ item.titulo }}</h3>
+              <p class="text-sm text-center">{{ item.autoreNombres }}</p>
+            </div>
           </div>
-          <h3 class="text-xl font-bold mb-1">{{ item.titulo }}</h3>
-          <p class="text-sm">{{ item.autoreNombres }}</p>
         </div>
+
+      </div>
+      <div class="bg-white" style="width: 80%; margin-left: 150px">
+        <br>
       </div>
     </div>
-    <div class="bg-white" style="width: 70%; margin-left: 200px">
-      <br>
-      <br>
+    <div *ngIf="filtro===false">
+      <div class="bg-white" style="width: 80%; margin-left: 150px">
+        <div class="mx-auto grid grid-cols-4 gap-8">
+          <div class="flex flex-col items-center relative">
+            <div class="filtro flex items-center justify-center w-full" style="height: 70vh; margin-left: 100vh">
+              <h1 class="text-center">Por el momento no hay libros registrados...</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-white" style="width: 80%; margin-left: 150px">
+        <br>
+      </div>
     </div>
 
     <!--- Agregar paginacion --->
-    <div class="pagination mt-3" style="width: 70%; margin-left: 200px">
+    <div class="pagination mt-3" style="width: 80%; margin-left: 150px">
       <pagination-controls (pageChange)="p = $event" previousLabel="" nextLabel=""></pagination-controls>
     </div>
 
     <hr class="border-2 mt-4" style="border-color: #0055a1">
+
   </div>
+
+
 
   <!-- Sidebar -->
   <div class="w-1/10 p-4" style="background-color: #dce1eb;">

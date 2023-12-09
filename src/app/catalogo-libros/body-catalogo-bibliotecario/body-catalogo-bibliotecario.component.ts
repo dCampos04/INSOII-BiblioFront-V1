@@ -43,18 +43,17 @@ export class BodyCatalogoBibliotecarioComponent implements OnInit{
     this.libroService.listarLibros(this.page, this.size)
       .subscribe((libros: DatosListadoLibro[]) => {
         console.log("Data from service:", libros);
-        this.libros = libros;
-        console.log("Data from service:", libros);
-        if(this.libros.length!==0){
-          this.filtro=true;
-          console.log('estado t:', this.filtro);
-
-        } else {
-          this.filtro=false;
-          console.log('estado f:', this.filtro);
-        }
-
+        this.libros = libros.map(libro => ({
+          ...libro,
+          portada: `data:image/png;base64, ${libro.portada}`,
+          autoreNombres: Array.isArray(libro.autoreNombres) ? libro.autoreNombres.join(', ') : libro.autoreNombres
+        }));
+        console.log("Data from service2: ", this.libros);
+        this.filtro = this.libros.length !== 0;
+        console.log('estado:', this.filtro);
       });
   }
+
+
 
 }

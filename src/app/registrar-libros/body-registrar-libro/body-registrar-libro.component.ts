@@ -110,6 +110,7 @@ export class BodyRegistrarLibroComponent {
     this.libroService.agregarLibro(this.libro).subscribe(
       (response) => {
         console.log('Libro agregado:', response);
+        this.router.navigate(['/catalogoBiblio']);
         // Puedes hacer algo después de agregar el libro, como redirigir a otra página
       },
       (error) => {
